@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "title": "Fictional desk lamp: reveal, use, landing",
+  "fps": "24",
+  "resolution": [1920, 1080],
+  "aspect_ratio": "16:9",
+  "total_frames": 288,
+  "shots": [
+    {
+      "id": "S01",
+      "purpose": "Introduce the lamp's silhouette and relation to the desk.",
+      "primary_focus": "Lamp head against a quiet darker background.",
+      "start_frame": 0,
+      "end_frame": 96,
+      "route": "generate",
+      "subject_action": "The lamp remains still while its pool of light becomes visible.",
+      "camera": {"intent": "Stable medium-wide three-quarter viewpoint; restrained push toward the lamp."},
+      "invariants": ["One rigid lamp arm", "Circular base", "Warm key from the same direction"],
+      "checks": ["Silhouette readable at delivery size", "No geometry drift or unrequested cut"],
+      "source": {"available_frames": 120, "head_handle_frames": 12, "tail_handle_frames": 12}
+    },
+    {
+      "id": "S02",
+      "purpose": "Show a single plausible hinge adjustment.",
+      "primary_focus": "Hand contact with the lamp head and the hinge response.",
+      "start_frame": 96,
+      "end_frame": 192,
+      "route": "animate",
+      "subject_action": "A hand tilts the head once, releases, and exits.",
+      "camera": {"intent": "Locked close three-quarter viewpoint; hinge and fingertips remain in focus."},
+      "invariants": ["Hinge count and axis", "Hand contact", "Lamp materials and light direction"],
+      "checks": ["No fused fingers", "Mechanically plausible rotation", "Contact and shadow persist"],
+      "source": {"available_frames": 120, "head_handle_frames": 12, "tail_handle_frames": 12}
+    },
+    {
+      "id": "S03",
+      "purpose": "Let the viewer inspect the final product and read the closing line.",
+      "primary_focus": "Lamp in its settled pose, then the short typeset closing line.",
+      "start_frame": 192,
+      "end_frame": 288,
+      "route": "composite",
+      "subject_action": "Hold the final pose; composite approved typography in post.",
+      "camera": {"intent": "Locked product framing with clear negative space for type."},
+      "invariants": ["Final hinge pose", "Exact approved copy", "Stable lighting and geometry"],
+      "checks": ["Type readable in the delivered encode", "No unwanted end-frame movement", "Actual hold reviewed at normal playback"],
+      "text_hold_frames": 72,
+      "source": {"available_frames": 120, "head_handle_frames": 12, "tail_handle_frames": 12}
+    }
+  ],
+  "transitions": [
+    {"from": "S01", "to": "S02", "kind": "cut", "overlap_frames": 0},
+    {"from": "S02", "to": "S03", "kind": "cut", "overlap_frames": 0}
+  ],
+  "notes": "Illustrative plan only. Source counts are declared examples, not inspected media or promises of model support. No paid job is authorized by this file."
+}

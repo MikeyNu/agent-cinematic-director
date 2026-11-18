@@ -1,0 +1,14 @@
+interface:
+  display_name: Cinematic Director
+  short_description: Direct cinematic shots, motion, color, and edits
+  default_prompt: Use $cinematic-director to plan, execute, and verify this cinematic
+    sequence with the available production tools and companion skills.
+  icon_small: assets/icon.svg
+  icon_large: assets/icon.svg
+policy:
+  products:
+  - chatgpt
+  - codex
+  - api
+  - atlas
+  allow_implicit_invocation: true

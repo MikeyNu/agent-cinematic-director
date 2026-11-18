@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "title": "Brief I corrected 12-second edit",
+  "fps": "24",
+  "resolution": [1920, 1080],
+  "total_frames": 288,
+  "shots": [
+    {
+      "id": "A",
+      "purpose": "Retain the approved opening.",
+      "primary_focus": "Existing approved subject in A.",
+      "start_frame": 0,
+      "end_frame": 72,
+      "route": "edit",
+      "invariants": ["Preserve A picture and timing."],
+      "checks": ["Compare with the approved A edit."]
+    },
+    {
+      "id": "B",
+      "purpose": "Retain the approved middle beat.",
+      "primary_focus": "Existing approved subject in B.",
+      "start_frame": 72,
+      "end_frame": 168,
+      "route": "edit",
+      "invariants": ["Preserve B picture and timing."],
+      "checks": ["Compare with the approved B edit."]
+    },
+    {
+      "id": "C",
+      "purpose": "Complete the final beat at exactly twelve seconds.",
+      "primary_focus": "Existing approved subject in C.",
+      "start_frame": 156,
+      "end_frame": 288,
+      "route": "edit",
+      "invariants": ["Preserve C start and the twelve-frame B-to-C dissolve."],
+      "checks": ["Inspect the added twelve source frames and final landing."],
+      "source": {
+        "available_frames": 160,
+        "head_handle_frames": 8,
+        "tail_handle_frames": 8
+      }
+    }
+  ],
+  "transitions": [
+    {"from": "B", "to": "C", "kind": "dissolve", "overlap_frames": 12}
+  ]
+}

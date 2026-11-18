@@ -1,0 +1,24 @@
+name: Validate skill
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  offline-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Validate skill structure
+        run: python3 scripts/check_skill.py .
+      - name: Test timeline checker
+        run: python3 -m unittest discover -s tests -v
+      - name: Validate example plan
+        run: python3 scripts/check_plan.py assets/shot-plan.example.json
